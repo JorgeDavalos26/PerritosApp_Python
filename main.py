@@ -1,5 +1,3 @@
-import numpy as np
-
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -7,7 +5,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from openpyxl import load_workbook
 
 import tkinter as tk
-from tkinter import *
+from tkinter import Label
+from tkinter import Button
 from tkinter import filedialog
 
 matplotlib.use('TkAgg')
@@ -55,12 +54,11 @@ def processExcel(path):
     plot_widget = canvas.get_tk_widget()
     plot_widget.grid(column=1, row=2)
 
-
 # method to brose the file in OS
 def browseFiles():
     filepath = filedialog.askopenfilename(
         initialdir = "C:/Users/Jorge/Desktop/PerritosApp", 
-        title = "Select a File", 
+        title = "Selecciona un archivo", 
         filetypes = (("Text files", "*.xlsx*"), ("all files", "*.*")))
 
     if not filepath:
@@ -70,6 +68,7 @@ def browseFiles():
     lblFileRoute.configure(text="Path of the file: " + filepath)
     processExcel(filepath)
 
+# center window
 def center_window(width=300, height=200):
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
@@ -88,7 +87,7 @@ center_window(1800, 800)
 # Create widgets of window
 lblFileExplorer = Label(window, text="Perrunos App", width=50, height=3, fg="black")
 lblFileRoute = Label(window, text="Ruta del archivo", width=80, height=2, fg="red")
-button_explore = Button(window, text="Browse Files", command=browseFiles)
+button_explore = Button(window, text="Buscar archivo excel", command=browseFiles)
 button_exit = Button(window, text="Exit", command=exit)
   
 # Locate widgets on window
