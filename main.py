@@ -24,13 +24,7 @@ def processExcel(path):
         if (value is not None):
             data.append(value)
 
-    """ mu = np.mean(data)
-    sigma = np.std(data, ddof=1) """
-
     n, bins, patches = plt.hist(data, bins=40, alpha=0.5, color='r')
-
-    """ y = ((1/(np.sqrt(2*np.pi)*sigma)) * np.exp(-0.5*(1/sigma*(bins-mu))**2))
-    plt.plot(bins, y, '--', color='black') """
 
     plt.xlabel('Edad', fontweight ="bold")
     plt.ylabel('Frecuencia', fontweight ="bold")
@@ -40,7 +34,6 @@ def processExcel(path):
     canvas = FigureCanvasTkAgg(fig, master=window)
     plot_widget = canvas.get_tk_widget()
     plot_widget.grid(column=0, row=2)
-
 
     data2 = []
     for row in all_rows[1:]:
@@ -55,7 +48,6 @@ def processExcel(path):
     plt.ylabel('Frecuencia', fontweight ="bold")
     plt.title('Raza de los perrunos', fontweight ="bold")
     plt.xticks(rotation='vertical')
-
     plt.subplots_adjust(bottom=0.35)
 
     fig = plt.figure(2)
