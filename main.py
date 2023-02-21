@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import Label
 from tkinter import Button
 from tkinter import filedialog
+from tkinter import messagebox
 
 matplotlib.use('TkAgg')
 
@@ -60,6 +61,8 @@ def browseFiles():
         initialdir = "C:/Users/Jorge/Desktop/PerritosApp", 
         title = "Selecciona un archivo", 
         filetypes = (("Text files", "*.xlsx*"), ("all files", "*.*")))
+
+    print(filepath)
 
     if not filepath:
         messagebox.showerror("Error", "Selecciona un archivo")
